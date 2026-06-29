@@ -23,8 +23,9 @@
   /* hero */
   .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding:40px 0 30px}
   @media(max-width:760px){.hero{grid-template-columns:1fr;text-align:left}}
-  .hero h1{font:900 56px/.94 var(--disp);letter-spacing:-.01em;text-transform:uppercase}
-  .hero h1 .g{color:var(--node);text-shadow:0 0 30px var(--nodeglow)}
+  .hero h1{font:900 62px/.9 var(--disp);letter-spacing:-.015em;text-transform:uppercase}
+  @media(max-width:760px){.hero h1{font-size:48px}}
+  .hero h1 .g{color:var(--node);text-shadow:0 0 36px var(--nodeglow),0 0 14px var(--nodeglow)}
   .hero p{font:400 14px/1.6 var(--mono);color:var(--muted);margin:20px 0 8px;max-width:430px}
   .hero p b{color:var(--text);font-weight:700}
   .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
@@ -56,6 +57,25 @@
   .mem .nm{font:700 9px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
   .mem.head .nm{color:var(--node)}
   @media(max-width:620px){.mem .av{font-size:18px;border-radius:12px}.mem .nm{font-size:7px}}
+
+  /* dashboard image placeholder */
+  .dashph{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#0c1218 0 12px,#0e141b 12px 24px);}
+  .dashph .phinner{text-align:center}
+  .dashph .phl{font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+  .dashph .phs{font:400 9px/1 var(--mono);color:var(--faint);margin-top:6px}
+
+  /* week calendar behind the GO verdict */
+  .verdict{position:relative;overflow:hidden}
+  .vcal{position:absolute;inset:0;display:grid;grid-template-columns:repeat(7,1fr);opacity:.4;z-index:0}
+  .vcal .vd{border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding-top:14px;gap:4px}
+  .vcal .vd:last-child{border-right:none}
+  .vcal .vdow{font:700 9px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .vcal .vnum{font:900 16px/1 var(--disp);color:var(--faint)}
+  .vcal .vses{margin-top:auto;margin-bottom:14px;font:700 7px/1.3 var(--mono);text-transform:uppercase;text-align:center;color:var(--faint);padding:0 4px}
+  .vcal .vd.today .vnum{color:var(--node)}
+  .vcal .vd.today{background:rgba(34,224,122,.06)}
+  .verdict .go,.verdict .sub{position:relative;z-index:1}
+
 </style>
 
 <div id="app"><div class="wrap">
@@ -70,25 +90,33 @@
 
   <div class="hero">
     <div>
-      <h1>Unlock your <span class="g">peak performance</span></h1>
+      <h1>Unlock your<br><span class="g">peak performance</span></h1>
       <p>An AI performance team for endurance athletes — a coach, planner, chef, physio and doctor, firing as one. <b>Your team is aligned.</b></p>
       <div class="cta">
-        <button class="btn fill">Start today's mission</button>
-        <button class="btn ghost">Watch trailer</button>
+        <button class="btn fill">View today's goals</button>
+        <button class="btn ghost">View calendar</button>
       </div>
     </div>
-    <div class="viz">
-      <div class="grid"></div>
-      <div class="core"><div class="ring r3"></div><div class="ring r2"></div><div class="ring r1"></div><div class="node"><b>GO</b></div></div>
-      <div class="chip c1">Planner<b>Wk 1 / 11</b></div>
-      <div class="chip c2">Analyst<b>Form +4</b></div>
-      <div class="chip c3">Recovery<b>HRV 68</b></div>
-      <div class="chip c4">Chef<b>Fuelled</b></div>
+    <div class="viz dashph">
+      <div class="phinner">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="#445663" stroke-width="1.5"/><path d="M3 9h18M8 18v2M16 18v2M6 22h12" stroke="#445663" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="phl">Dashboard preview</div>
+        <div class="phs">image placeholder</div>
+      </div>
     </div>
   </div>
 
-  <div class="sect">Coach&#8217;s update</div>
+  <div class="sect">Coach&#8217;s plan</div>
   <div class="verdict">
+    <div class="vcal">
+      <div class="vd today"><div class="vdow">Wed</div><div class="vnum">1</div><div class="vses">Bike endur.</div></div>
+      <div class="vd"><div class="vdow">Thu</div><div class="vnum">2</div><div class="vses">Hills + Str B</div></div>
+      <div class="vd"><div class="vdow">Fri</div><div class="vnum">3</div><div class="vses">Easy / rest</div></div>
+      <div class="vd"><div class="vdow">Sat</div><div class="vnum">4</div><div class="vses">Long 16k</div></div>
+      <div class="vd"><div class="vdow">Sun</div><div class="vnum">5</div><div class="vses">FTP test</div></div>
+      <div class="vd"><div class="vdow">Mon</div><div class="vnum">6</div><div class="vses">Easy + Str A</div></div>
+      <div class="vd"><div class="vdow">Tue</div><div class="vnum">7</div><div class="vses">Threshold</div></div>
+    </div>
     <div class="go">GO</div>
     <div class="sub">Your team is ready. Build the engine.</div>
   </div>
