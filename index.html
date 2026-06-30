@@ -45,7 +45,8 @@
   /* verdict band */
   .sect{font:700 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:34px 0 14px}
   .verdict{background:radial-gradient(circle at 50% 50%,#0f2419,#0c1218 70%);border:1px solid var(--line);border-radius:20px;padding:46px 20px;text-align:center}
-  .verdict .go{font:900 92px/.8 var(--disp);color:var(--node);text-shadow:0 0 50px var(--nodeglow),0 0 16px var(--nodeglow)}
+  .verdict .go{font:900 64px/.9 var(--disp);color:var(--node);text-shadow:0 0 50px var(--nodeglow),0 0 16px var(--nodeglow);text-align:center;letter-spacing:-.01em}
+  @media(max-width:620px){.verdict .go{font-size:42px}}
   .verdict .sub{font:400 13px/1.5 var(--mono);color:var(--muted);margin-top:16px}
 
   /* team */
@@ -67,12 +68,12 @@
 
   /* week calendar behind the GO verdict */
   .verdict{position:relative;overflow:hidden}
-  .vcal{position:absolute;inset:0;display:grid;grid-template-columns:repeat(7,1fr);opacity:.4;z-index:0}
+  .vcal{position:absolute;inset:0;display:grid;grid-template-columns:repeat(7,1fr);opacity:.6;z-index:0}
   .vcal .vd{border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding-top:14px;gap:4px}
   .vcal .vd:last-child{border-right:none}
   .vcal .vdow{font:700 9px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
   .vcal .vnum{font:900 16px/1 var(--disp);color:var(--faint)}
-  .vcal .vses{margin-top:auto;margin-bottom:14px;font:700 7px/1.3 var(--mono);text-transform:uppercase;text-align:center;color:var(--faint);padding:0 4px}
+  .vcal .vses{margin-top:auto;margin-bottom:14px;font:700 8px/1.3 var(--mono);text-transform:uppercase;text-align:center;color:var(--muted);padding:0 4px}
   .vcal .vd.today .vnum{color:var(--node)}
   .vcal .vd.today{background:rgba(34,224,122,.06)}
   .verdict .go,.verdict .sub{position:relative;z-index:1}
@@ -93,6 +94,12 @@
   .banner-content p{font:400 14px/1.6 var(--mono);color:var(--muted);margin:20px 0 8px;max-width:480px}
   .banner-content p b{color:var(--text);font-weight:700}
   @media(max-width:760px){.banner-content h1{font-size:42px}.banner-content{padding:32px 24px}.banner{min-height:340px}}
+
+
+  .coachsect{display:flex;align-items:center;gap:10px}
+  .coachsect .coachface{width:26px;height:26px;border-radius:7px;object-fit:cover;border:1px solid var(--node);box-shadow:0 0 10px rgba(34,224,122,.3)}
+  .coachsect .calbtn{margin-left:auto;font:700 9px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--node);text-decoration:none;border:1px solid #1d4a33;border-radius:7px;padding:8px 11px}
+  .coachsect .calbtn:hover{background:rgba(34,224,122,.08)}
 
 </style>
 
@@ -118,19 +125,18 @@
     </div>
   </div>
 
-  <div class="sect">Coach&#8217;s plan</div>
+  <div class="sect coachsect"><img class="coachface" src="coach.png" alt="" onerror="this.style.display='none'"><span>Coach Pete&#8217;s plan</span><a class="calbtn" href="#calendar">View calendar ›</a></div>
   <div class="verdict">
     <div class="vcal">
-      <div class="vd today"><div class="vdow">Wed</div><div class="vnum">1</div><div class="vses">Bike endur.</div></div>
-      <div class="vd"><div class="vdow">Thu</div><div class="vnum">2</div><div class="vses">Hills + Str B</div></div>
-      <div class="vd"><div class="vdow">Fri</div><div class="vnum">3</div><div class="vses">Easy / rest</div></div>
-      <div class="vd"><div class="vdow">Sat</div><div class="vnum">4</div><div class="vses">Long 16k</div></div>
-      <div class="vd"><div class="vdow">Sun</div><div class="vnum">5</div><div class="vses">FTP test</div></div>
-      <div class="vd"><div class="vdow">Mon</div><div class="vnum">6</div><div class="vses">Easy + Str A</div></div>
-      <div class="vd"><div class="vdow">Tue</div><div class="vnum">7</div><div class="vses">Threshold</div></div>
+      <div class="vd today"><div class="vdow">Wed</div><div class="vnum">1</div><div class="vses">Bike endurance<br>60–90 min Z2</div></div>
+      <div class="vd"><div class="vdow">Thu</div><div class="vnum">2</div><div class="vses">Hills 8×45s<br>+ Strength B</div></div>
+      <div class="vd"><div class="vdow">Fri</div><div class="vnum">3</div><div class="vses">Easy 30–40<br>or rest</div></div>
+      <div class="vd"><div class="vdow">Sat</div><div class="vnum">4</div><div class="vses">Long run<br>16 km easy</div></div>
+      <div class="vd"><div class="vdow">Sun</div><div class="vnum">5</div><div class="vses">FTP test<br>20-min</div></div>
+      <div class="vd"><div class="vdow">Mon</div><div class="vnum">6</div><div class="vses">Easy 40<br>+ Strength A</div></div>
+      <div class="vd"><div class="vdow">Tue</div><div class="vnum">7</div><div class="vses">Threshold<br>3×8 @ 4:10</div></div>
     </div>
-    <div class="go">GO</div>
-    <div class="sub">Your team is ready. Build the engine.</div>
+    <div class="go">YOU GOT THIS</div>
   </div>
 
   <div class="sect">Speak to your team</div>
