@@ -96,10 +96,18 @@
   @media(max-width:760px){.banner-content h1{font-size:42px}.banner-content{padding:32px 24px}.banner{min-height:340px}}
 
 
-  .coachsect{display:flex;align-items:center;gap:10px}
-  .coachsect .coachface{width:26px;height:26px;border-radius:7px;object-fit:cover;border:1px solid var(--node);box-shadow:0 0 10px rgba(34,224,122,.3)}
-  .coachsect .calbtn{margin-left:auto;font:700 9px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--node);text-decoration:none;border:1px solid #1d4a33;border-radius:7px;padding:8px 11px}
+  .coachsect{display:flex;align-items:center;gap:16px;margin:34px 0 14px}
+  .coachsect .coachface{width:52px;height:52px;border-radius:11px;object-fit:cover;border:1px solid var(--node);box-shadow:0 0 14px rgba(34,224,122,.35)}
+  .coachsect .coachfallback{display:flex;align-items:center;justify-content:center;background:#0c1512;color:var(--node);font:900 20px/1 var(--disp)}
+  .coachsect .coachtitle{font:900 26px/1 var(--disp);text-transform:uppercase;letter-spacing:-.01em;color:#FFFFFF}
+  .coachsect .todaydate{font:700 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#FFFFFF;border-left:1px solid var(--edge);padding-left:16px}
+  .coachsect .calbtn{margin-left:auto;font:700 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--node);text-decoration:none;border:1px solid #1d4a33;border-radius:8px;padding:10px 14px}
   .coachsect .calbtn:hover{background:rgba(34,224,122,.08)}
+  @media(max-width:620px){.coachsect .coachtitle{font-size:19px}.coachsect{gap:11px}.coachsect .todaydate{display:none}}
+
+
+  .teamsect{font:900 26px/1 var(--disp);text-transform:uppercase;letter-spacing:-.01em;color:#FFFFFF}
+  @media(max-width:620px){.teamsect{font-size:19px}}
 
 </style>
 
@@ -125,7 +133,7 @@
     </div>
   </div>
 
-  <div class="sect coachsect"><img class="coachface" src="coach.png" alt="" onerror="this.style.display='none'"><span>Coach Pete&#8217;s plan</span><a class="calbtn" href="#calendar">View calendar ›</a></div>
+  <div class="coachsect"><img class="coachface" src="coach.png" alt="Coach Pete" onerror="this.outerHTML='<div class=\'coachface coachfallback\'>C</div>'"><span class="coachtitle">Coach Pete&#8217;s Plan</span><span class="todaydate" id="todaydate">—</span><a class="calbtn" href="#calendar">View calendar ›</a></div>
   <div class="verdict">
     <div class="vcal">
       <div class="vd today"><div class="vdow">Wed</div><div class="vnum">1</div><div class="vses">Bike endurance<br>60–90 min Z2</div></div>
@@ -139,7 +147,7 @@
     <div class="go">YOU GOT THIS</div>
   </div>
 
-  <div class="sect">Speak to your team</div>
+  <div class="sect teamsect">Speak to your team</div>
   <div class="team">
     <div class="mem"><div class="av" style="color:#9B8CFF">P</div><div class="nm">Planner</div></div>
     <div class="mem"><div class="av" style="color:#22E07A">K</div><div class="nm">Chef</div></div>
@@ -147,4 +155,7 @@
     <div class="mem"><div class="av" style="color:#FF9F1C">Ph</div><div class="nm">Physio</div></div>
     <div class="mem"><div class="av" style="color:#3FD3E6">Dr</div><div class="nm">Doctor</div></div>
   </div>
+<script>
+(function(){var d=new Date();var opts={weekday:'short',day:'numeric',month:'short',year:'numeric'};document.getElementById('todaydate').textContent=d.toLocaleDateString('en-GB',opts).toUpperCase();})();
+</script>
 </div></div>
